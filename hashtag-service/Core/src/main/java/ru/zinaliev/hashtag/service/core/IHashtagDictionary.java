@@ -1,4 +1,4 @@
-package ru.zinaliev.hashtag.service;
+package ru.zinaliev.hashtag.service.core;
 
 import java.util.List;
 

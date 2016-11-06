@@ -1,0 +1,11 @@
+E:\DEVEL\REPOS\GitHub\unspecified\hashtag-service\Core\src\main\java\service\rest\api\IHashtagEndpointApi.java
+E:\DEVEL\REPOS\GitHub\unspecified\hashtag-service\Core\src\main\java\service\exceptions\NoSuchWordException.java
+E:\DEVEL\REPOS\GitHub\unspecified\hashtag-service\Core\src\main\java\service\core\implementation\HashtagDictionary.java
+E:\DEVEL\REPOS\GitHub\unspecified\hashtag-service\Core\src\main\java\service\exceptions\NoSuchPhonemeException.java
+E:\DEVEL\REPOS\GitHub\unspecified\hashtag-service\Core\src\main\java\service\rest\endpoint\HashtagEndpoint.java
+E:\DEVEL\REPOS\GitHub\unspecified\hashtag-service\Core\src\main\java\service\core\IHashtagDictionary.java
+E:\DEVEL\REPOS\GitHub\unspecified\hashtag-service\Core\src\main\java\service\core\implementation\HashtagNode.java
+E:\DEVEL\REPOS\GitHub\unspecified\hashtag-service\Core\src\main\java\service\tools\Argument.java
+E:\DEVEL\REPOS\GitHub\unspecified\hashtag-service\Core\src\main\java\service\exceptions\InvalidArgumentException.java
+E:\DEVEL\REPOS\GitHub\unspecified\hashtag-service\Core\src\main\java\service\rest\listeners\HashtagServiceListener.java
+E:\DEVEL\REPOS\GitHub\unspecified\hashtag-service\Core\src\main\java\service\rest\endpoint\TestEndpoint.java

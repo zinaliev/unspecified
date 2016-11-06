@@ -1,4 +1,5 @@
-package ru.zinaliev.hashtag.service.implementation.tools;
+package ru.zinaliev.hashtag.service.tools;
+
 
 import ru.zinaliev.hashtag.service.exceptions.InvalidArgumentException;
 

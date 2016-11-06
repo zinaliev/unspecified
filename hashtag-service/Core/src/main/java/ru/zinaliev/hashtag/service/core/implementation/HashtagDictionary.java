@@ -1,10 +1,11 @@
-package ru.zinaliev.hashtag.service.implementation;
+package ru.zinaliev.hashtag.service.core.implementation;
 
 import com.google.common.base.Joiner;
-import ru.zinaliev.hashtag.service.IHashtagDictionary;
+import ru.zinaliev.hashtag.service.core.IHashtagDictionary;
 import ru.zinaliev.hashtag.service.exceptions.NoSuchPhonemeException;
 import ru.zinaliev.hashtag.service.exceptions.NoSuchWordException;
-import ru.zinaliev.hashtag.service.implementation.tools.Argument;
+import ru.zinaliev.hashtag.service.tools.Argument;
+
 
 import java.util.Iterator;
 import java.util.List;
