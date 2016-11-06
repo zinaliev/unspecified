@@ -1,4 +1,4 @@
-package ru.zinaliev.hashtag.service.core.implementation;
+package ru.rhome.hashtag.service.core.implementation;
 
 import java.util.HashMap;
 import java.util.Map;

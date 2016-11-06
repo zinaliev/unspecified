@@ -1,7 +1,7 @@
-package ru.zinaliev.hashtag.service.tools;
+package ru.rhome.hashtag.service.tools;
 
 
-import ru.zinaliev.hashtag.service.exceptions.InvalidArgumentException;
+import ru.rhome.hashtag.service.exceptions.InvalidArgumentException;
 
 import java.util.Collection;
 

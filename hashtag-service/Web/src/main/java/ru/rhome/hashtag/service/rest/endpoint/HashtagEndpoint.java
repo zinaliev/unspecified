@@ -1,4 +1,4 @@
-package ru.zinaliev.hashtag.service.rest.endpoint;
+package ru.rhome.hashtag.service.rest.endpoint;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
@@ -7,7 +7,7 @@ import javax.ws.rs.core.Response;
  * Created by zinaliev on 06.11.2016.
  */
 
-@Path("tags")
+@Path("/tags")
 @Consumes("application/json")
 @Produces("application/json")
 public class HashtagEndpoint {

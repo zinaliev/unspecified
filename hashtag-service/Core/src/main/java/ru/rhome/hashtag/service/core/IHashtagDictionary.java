@@ -1,4 +1,4 @@
-package ru.zinaliev.hashtag.service.core;
+package ru.rhome.hashtag.service.core;
 
 import java.util.List;
 

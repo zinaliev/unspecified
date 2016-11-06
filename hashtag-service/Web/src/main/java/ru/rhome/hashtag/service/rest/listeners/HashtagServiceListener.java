@@ -1,4 +1,4 @@
-package ru.zinaliev.hashtag.service.rest.listeners;
+package ru.rhome.hashtag.service.rest.listeners;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;

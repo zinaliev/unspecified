@@ -1,4 +1,4 @@
-package ru.zinaliev.hashtag.service.exceptions;
+package ru.rhome.hashtag.service.exceptions;
 
 /**
  * Created by R on 22.10.2016.

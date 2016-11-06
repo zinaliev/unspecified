@@ -1,4 +1,4 @@
-package ru.zinaliev.hashtag.service.rest.endpoint;
+package ru.rhome.hashtag.service.rest.endpoint;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -7,7 +7,7 @@ import javax.ws.rs.core.Response;
 /**
  * Created by zinaliev on 06.11.2016.
  */
-@Path("test")
+@Path("/test")
 public class TestEndpoint {
 
     @GET
