@@ -1,4 +1,4 @@
-package ru.rhome.phonemedictionary.exceptions;
+package ru.zinaliev.hashtag.service.exceptions;
 
 /**
  * Created by R on 22.10.2016.

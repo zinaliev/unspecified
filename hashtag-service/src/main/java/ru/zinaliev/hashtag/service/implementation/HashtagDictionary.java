@@ -1,10 +1,10 @@
-package ru.rhome.phonemedictionary.implementation;
+package ru.zinaliev.hashtag.service.implementation;
 
 import com.google.common.base.Joiner;
-import ru.rhome.phonemedictionary.IPhonemeDictionary;
-import ru.rhome.phonemedictionary.exceptions.NoSuchPhonemeException;
-import ru.rhome.phonemedictionary.exceptions.NoSuchWordException;
-import ru.rhome.phonemedictionary.implementation.tools.Argument;
+import ru.zinaliev.hashtag.service.IHashtagDictionary;
+import ru.zinaliev.hashtag.service.exceptions.NoSuchPhonemeException;
+import ru.zinaliev.hashtag.service.exceptions.NoSuchWordException;
+import ru.zinaliev.hashtag.service.implementation.tools.Argument;
 
 import java.util.Iterator;
 import java.util.List;
@@ -12,16 +12,16 @@ import java.util.List;
 /**
  * Created by R on 21.10.2016.
  */
-class PhonemeTree implements IPhonemeDictionary {
+class HashtagDictionary implements IHashtagDictionary {
 
-    PhonemeTreeNode rootNode = new PhonemeTreeNode();
+    HashtagNode rootNode = new HashtagNode();
 
     public String getWord(List<String> phonemes) {
         Argument.checkCollection(phonemes, "phonemes");
 
         Iterator<String> phonemesIterator = phonemes.iterator();
-        PhonemeTreeNode parentNode = rootNode;
-        PhonemeTreeNode childNode;
+        HashtagNode parentNode = rootNode;
+        HashtagNode childNode;
 
         for(int i = 0; i < phonemes.size(); i++){
             childNode = parentNode.getChild(phonemes.get(i));
@@ -51,11 +51,11 @@ class PhonemeTree implements IPhonemeDictionary {
         Argument.checkNotEmpty(word, "word");
 
         Iterator<String> phonemesIterator = phonemes.iterator();
-        PhonemeTreeNode parentNode = rootNode;
-        PhonemeTreeNode childNode = null;
+        HashtagNode parentNode = rootNode;
+        HashtagNode childNode = null;
 
         while(phonemesIterator.hasNext()){
-            childNode = new PhonemeTreeNode(phonemesIterator.next());
+            childNode = new HashtagNode(phonemesIterator.next());
             parentNode.addChild(childNode);
             parentNode = childNode;
         }

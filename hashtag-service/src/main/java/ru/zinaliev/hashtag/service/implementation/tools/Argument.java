@@ -1,6 +1,6 @@
-package ru.rhome.phonemedictionary.implementation.tools;
+package ru.zinaliev.hashtag.service.implementation.tools;
 
-import ru.rhome.phonemedictionary.exceptions.InvalidArgumentException;
+import ru.zinaliev.hashtag.service.exceptions.InvalidArgumentException;
 
 import java.util.Collection;
 

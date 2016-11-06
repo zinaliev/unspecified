@@ -1,4 +1,4 @@
-package ru.rhome.phonemedictionary.implementation;
+package ru.zinaliev.hashtag.service.implementation;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * Created by R on 22.10.2016.
  */
-class PhonemeTreeNode {
+class HashtagNode {
 
     public boolean isLeaf(){
         return word != null;
@@ -32,21 +32,21 @@ class PhonemeTreeNode {
 
     private String word;
 
-    private Map<String, PhonemeTreeNode> children = new HashMap<String, PhonemeTreeNode>();
+    private Map<String, HashtagNode> children = new HashMap<String, HashtagNode>();
 
-    public PhonemeTreeNode(){
+    public HashtagNode(){
         this(null);
     }
 
-    public PhonemeTreeNode (String phoneme){
+    public HashtagNode(String phoneme){
         this.phoneme = phoneme;
     }
 
-    public void addChild(PhonemeTreeNode node){
+    public void addChild(HashtagNode node){
         children.put(node.getPhoneme(), node);
     }
 
-    public PhonemeTreeNode getChild(String phoneme){
+    public HashtagNode getChild(String phoneme){
         return children.get(phoneme);
     }
 }

@@ -1,11 +1,11 @@
-package ru.rhome.phonemedictionary;
+package ru.zinaliev.hashtag.service;
 
 import java.util.List;
 
 /**
  * Created by R on 21.10.2016.
  */
-public interface IPhonemeDictionary {
+public interface IHashtagDictionary {
 
     String getWord(List<String> phonemes);
 

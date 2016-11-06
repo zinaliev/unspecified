@@ -1,12 +1,12 @@
-package ru.rhome.phonemedictionary.implementation;
+package ru.zinaliev.hashtag.service.implementation;
 
 import com.google.common.collect.Lists;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import ru.rhome.phonemedictionary.IPhonemeDictionary;
-import ru.rhome.phonemedictionary.exceptions.NoSuchPhonemeException;
-import ru.rhome.phonemedictionary.exceptions.NoSuchWordException;
+import ru.zinaliev.hashtag.service.IHashtagDictionary;
+import ru.zinaliev.hashtag.service.exceptions.NoSuchPhonemeException;
+import ru.zinaliev.hashtag.service.exceptions.NoSuchWordException;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,7 +16,7 @@ import java.util.Map;
 /**
  * Created by R on 21.10.2016.
  */
-public class PhonemeTreeTest {
+public class HashtagDictionaryTest {
 
     @Before
     public void setUp() throws Exception {
@@ -32,12 +32,12 @@ public class PhonemeTreeTest {
         phonemes.put(words.get(2), Lists.newArrayList("ˈhæ", "pɪ", "li"));
         phonemes.put(words.get(3), Lists.newArrayList("ˈhæ", "pɪ", "nɪs"));
 
-        tree = new PhonemeTree();
+        tree = new HashtagDictionary();
     }
 
     private Map<String, List<String>> phonemes;
     private List<String> words;
-    private IPhonemeDictionary tree;
+    private IHashtagDictionary tree;
 
     @Test
     public void testPutWord_OnOnePhonemeWord_WordIsObtained() throws Exception {
@@ -46,7 +46,6 @@ public class PhonemeTreeTest {
         tree.putWord(phonemes.get(word), word);
 
         Assert.assertEquals(word, tree.getWord(phonemes.get(word)));
-        System.out.println(word);
     }
 
     @Test(expected = NoSuchPhonemeException.class)
