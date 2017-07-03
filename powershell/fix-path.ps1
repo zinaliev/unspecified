@@ -8,4 +8,5 @@ echo("-----------------")
 (Get-ItemProperty -Path ‘Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment’ -Name PATH).Path
 echo("-----------------")
 echo "Restart console to use new PATH"
+# comment for test commit from work PC
 
