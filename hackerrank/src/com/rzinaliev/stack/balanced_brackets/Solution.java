@@ -1,4 +1,4 @@
-package com.rzinaliev.balanced_brackets;
+package com.rzinaliev.stack.balanced_brackets;
 
 import java.util.*;
 
