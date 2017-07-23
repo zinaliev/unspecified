@@ -1,7 +1,5 @@
 package com.rzinaliev.heap_running_median;
 
-import com.sun.xml.internal.ws.util.StringUtils;
-
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -29,18 +27,12 @@ public class Solution {
       Tree tree = new Tree();
 
       tree.add(5);
-      System.out.println(tree);
-
-      //tree.add(3);
+      tree.add(3);
       tree.add(7);
-      System.out.println(tree);
-
       tree.add(8);
-      System.out.println(tree);
-      
-      //tree.add(6);
-      //tree.add(4);
-      //tree.add(2);
+      tree.add(6);
+      tree.add(4);
+      tree.add(2);
 
       System.out.println(tree);
    }
@@ -74,40 +66,33 @@ public class Solution {
       int size;
 
       public void add(int data){
-         size++;
-
          if(root == null){
             root = new Node(data);
-            return;
+         }else{
+            addInternal(root, data);
          }
 
-         Node curNode = root;
+         size++;
+      }
 
-         while(true){
-            fixHeight(curNode);
+      void addInternal(Node node, int data){
 
-            if(data < curNode.data){ // go left
-               if(curNode.left == null){
-                  curNode.left = new Node(data);
-                  fixHeight(curNode);
-                  break;
-               }else{
-                  fixHeight(curNode);
-                  curNode = curNode.left;
-               }
-            }else if(data > curNode.data){  // go right
-               if(curNode.right == null){
-                  curNode.right = new Node(data);
-                  fixHeight(curNode);
-                  break;
-               }else{
-                  fixHeight(curNode);
-                  curNode = curNode.right;
-               }
+         if(data < node.data ){
+            if(node.left == null){
+               node.left = new Node(data);
             }else{
-               throw new RuntimeException("duplicate data: " + data);
+               addInternal(node.left, data);
             }
-         }
+         }else if (data > node.data){
+            if(node.right == null){
+               node.right = new Node(data);
+            }else{
+               addInternal(node.right, data);
+            }
+         }else
+            throw new RuntimeException("duplicate data : " + data);
+
+         fixHeight(node);
       }
 
       void fixHeight(Node node){
@@ -117,9 +102,6 @@ public class Solution {
          node.height = Math.max(leftH, rightH) + 1;
       }
 
-      /**
-       * Does well only for balanced trees (yet)
-       */
       @Override
       public String toString() {
          StringBuilder sb = new StringBuilder();
@@ -169,6 +151,9 @@ public class Solution {
                nodes.add(new Node(INVALID_DATA, curNode.height - 1));
             }
          }
+
+         sb.append('\n');
+         sb.append("size: " + size);
 
          return sb.toString();
       }
