@@ -1,6 +1,5 @@
 package com.rzinaliev.heap_running_median;
 
-import javax.swing.tree.FixedHeightLayoutCache;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -10,13 +9,33 @@ import java.util.Scanner;
  * @author rzinalie
  */
 public class Solution {
+
+   static Tree tree = new Tree();
+
    public static void main(String[] args) {
       Scanner in = new Scanner(System.in);
       int cmdCount = in.nextInt();
 
       for(int i = 0; i < cmdCount; i++){
          int item = Integer.parseInt(in.next());
+         tree.add(item);
+         System.out.println(findMedian());
       }
+   }
+
+   private static String findMedian() {
+      float result = 0f;
+
+      Node root = tree.root;
+      if(root.size % 2 == 1){
+         result = tree.root.data;
+      }else if(Tree.size(root.left) >= Tree.size(root.right)){
+         result = ((float)root.data + (float) Tree.findMax(root.left)) / 2.f;
+      }else{
+         result = ((float)root.data + (float)Tree.findMin(root.right)) / 2.f;
+      }
+
+      return String.format("%.1f", result);
    }
 
    /**
@@ -25,12 +44,14 @@ public class Solution {
    static class Node{
       int data;
       int height;
+      int size;
       Node left;
       Node right;
 
       public Node(int data, int height){
          this.data = data;
          this.height = height;
+         this.size = 1;
       }
 
       public Node(int data){
@@ -50,7 +71,6 @@ public class Solution {
       private static final int INVALID_DATA = -1;
 
       Node root;
-      int size;
 
       public void add(int data){
          if(root == null){
@@ -58,11 +78,13 @@ public class Solution {
          }else{
             root = addInternal(root, data);
          }
-
-         size++;
       }
 
-      Node addInternal(Node node, int data){
+      public int balanceFactor(){
+         return balanceFactor(root);
+      }
+
+      static Node addInternal(Node node, int data){
 
          if(node == null){
             node = new Node(data);
@@ -91,20 +113,21 @@ public class Solution {
          }
 
          fixHeight(node);
+         fixSize(node);
          return node;
       }
 
-      private Node rightLeftRotation(Node parent) {
+      static Node rightLeftRotation(Node parent) {
          parent.right = rightRotation(parent.right);
          return leftRotation(parent);
       }
 
-      private Node leftRightRotation(Node parent) {
+      static Node leftRightRotation(Node parent) {
          parent.left = leftRotation(parent.left);
          return rightRotation(parent);
       }
 
-      private Node leftRotation(Node parent) {
+      static Node leftRotation(Node parent) {
          Node child = parent.right;
 
          parent.right = child.left;
@@ -113,10 +136,13 @@ public class Solution {
          fixHeight(parent);
          child.height = Math.max(height(parent), height(child.right)) + 1;
 
+         fixSize(parent);
+         fixSize(child);
+
          return child;
       }
 
-      private Node rightRotation(Node parent) {
+      static Node rightRotation(Node parent) {
 
          Node child = parent.left;
 
@@ -126,25 +152,61 @@ public class Solution {
          fixHeight(parent);
          child.height = Math.max(height(parent), height(child.left)) + 1;
 
+         fixSize(parent);
+         fixSize(child);
+
          return child;
       }
 
-      void fixHeight(Node node){
+      static void fixHeight(Node node){
          int leftH = height(node.left);
          int rightH = height(node.right);
 
          node.height = Math.max(leftH, rightH) + 1;
       }
 
-      int height(Node node){
+      static int height(Node node){
          return node != null ? node.height : -1;
       }
 
-      int balanceFactor(Node node){
+      static int size(Node node){
+         return node != null ? node.size : 0;
+      }
+
+      static void fixSize(Node node){
+         if(node == null)
+            return;
+
+         node.size = size(node.left) + size(node.right) + 1;
+      }
+
+      static int balanceFactor(Node node){
          if (node == null)
             return INVALID_DATA;
 
          return height(node.left) - height(node.right);
+      }
+
+      static int findMax(Node node){
+         int result = 0;
+
+         while (node != null){
+            result = node.data;
+            node = node.right;
+         }
+
+         return result;
+      }
+
+      static int findMin(Node node){
+         int result = 0;
+
+         while (node != null){
+            result = node.data;
+            node = node.left;
+         }
+
+         return result;
       }
 
       @Override
@@ -198,7 +260,7 @@ public class Solution {
          }
 
          sb.append('\n');
-         sb.append("size: " + size);
+         sb.append("size: " + size(root));
 
          return sb.toString();
       }

@@ -48,7 +48,7 @@ public class TreeTest {
       assertEquals(1, root.left.data);
       assertEquals(3, root.right.data);
 
-      assertEquals(3, tree.size);
+      assertEquals(3, root.size);
       assertEquals(1, root.height);
    }
 
@@ -64,7 +64,7 @@ public class TreeTest {
       assertEquals(1, root.left.data);
       assertEquals(3, root.right.data);
 
-      assertEquals(3, tree.size);
+      assertEquals(3, root.size);
       assertEquals(1, root.height);
    }
 
