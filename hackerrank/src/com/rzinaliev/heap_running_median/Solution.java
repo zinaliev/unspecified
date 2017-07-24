@@ -10,31 +10,12 @@ import java.util.Scanner;
  */
 public class Solution {
    public static void main(String[] args) {
-      //mainInternal();
-      mainTest();
-   }
-
-   static void mainInternal(){
       Scanner in = new Scanner(System.in);
       int cmdCount = in.nextInt();
 
       for(int i = 0; i < cmdCount; i++){
          int item = Integer.parseInt(in.next());
       }
-   }
-
-   static void mainTest(){
-      Tree tree = new Tree();
-
-      tree.add(5);
-      tree.add(3);
-      tree.add(7);
-      tree.add(8);
-      tree.add(6);
-      tree.add(4);
-      tree.add(2);
-
-      System.out.println(tree);
    }
 
    /**
@@ -93,13 +74,47 @@ public class Solution {
             throw new RuntimeException("duplicate data : " + data);
 
          fixHeight(node);
+
+//         int balance = balanceFactor(node);
+//         if(balance >= 2){
+//            rotateWithLeftChild(node);
+//         }else if (balance <= -2){
+//            rotateLeft(node);
+//         }
+      }
+
+      void rotateLeft(Node node) {
+
+      }
+
+      Node rotateWithLeftChild(Node n2){
+         Node n1 = n2.left;
+
+         n2.left = n1.left;
+         n1.right = n2;
+
+         fixHeight(n1);
+         fixHeight(n2);
+
+         return n1;
       }
 
       void fixHeight(Node node){
-         int leftH   = node.left    != null ? node.left.height    : 0;
-         int rightH  = node.right   != null ? node.right.height   : 0;
+         int leftH = height(node.left);
+         int rightH = height(node.right);
 
          node.height = Math.max(leftH, rightH) + 1;
+      }
+
+      int height(Node node){
+         return node != null ? node.height : 0;
+      }
+
+      int balanceFactor(Node node){
+         if (node == null)
+            return INVALID_DATA;
+
+         return height(node.left) - height(node.right);
       }
 
       @Override
