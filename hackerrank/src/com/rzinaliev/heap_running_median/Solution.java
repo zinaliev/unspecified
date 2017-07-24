@@ -1,5 +1,6 @@
 package com.rzinaliev.heap_running_median;
 
+import javax.swing.tree.FixedHeightLayoutCache;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -35,6 +36,11 @@ public class Solution {
       public Node(int data){
          this(data, 0);
       }
+
+      @Override
+      public String toString() {
+         return String.format("%s:%s", data, height);
+      }
    }
 
    /**
@@ -50,53 +56,77 @@ public class Solution {
          if(root == null){
             root = new Node(data);
          }else{
-            addInternal(root, data);
+            root = addInternal(root, data);
          }
 
          size++;
       }
 
-      void addInternal(Node node, int data){
+      Node addInternal(Node node, int data){
 
-         if(data < node.data ){
-            if(node.left == null){
-               node.left = new Node(data);
-            }else{
-               addInternal(node.left, data);
+         if(node == null){
+            node = new Node(data);
+         }else if(data < node.data){
+            node.left = addInternal(node.left, data);
+
+            if(balanceFactor(node) > 1){
+               if(data < node.left.data){
+                  node = rightRotation(node);
+               }else{
+                  node = leftRightRotation(node);
+               }
             }
-         }else if (data > node.data){
-            if(node.right == null){
-               node.right = new Node(data);
-            }else{
-               addInternal(node.right, data);
+         }else if(data > node.data){
+            node.right = addInternal(node.right, data);
+
+            if(balanceFactor(node) < -1){
+               if(data > node.right.data){
+                  node = leftRotation(node);
+               }else{
+                  node = rightLeftRotation(node);
+               }
             }
-         }else
+         }else{
             throw new RuntimeException("duplicate data : " + data);
+         }
 
          fixHeight(node);
-
-//         int balance = balanceFactor(node);
-//         if(balance >= 2){
-//            rotateWithLeftChild(node);
-//         }else if (balance <= -2){
-//            rotateLeft(node);
-//         }
+         return node;
       }
 
-      void rotateLeft(Node node) {
-
+      private Node rightLeftRotation(Node parent) {
+         parent.right = rightRotation(parent.right);
+         return leftRotation(parent);
       }
 
-      Node rotateWithLeftChild(Node n2){
-         Node n1 = n2.left;
+      private Node leftRightRotation(Node parent) {
+         parent.left = leftRotation(parent.left);
+         return rightRotation(parent);
+      }
 
-         n2.left = n1.left;
-         n1.right = n2;
+      private Node leftRotation(Node parent) {
+         Node child = parent.right;
 
-         fixHeight(n1);
-         fixHeight(n2);
+         parent.right = child.left;
+         child.left = parent;
 
-         return n1;
+         fixHeight(parent);
+         child.height = Math.max(height(parent), height(child.right)) + 1;
+
+         return child;
+      }
+
+      private Node rightRotation(Node parent) {
+
+         Node child = parent.left;
+
+         parent.left = child.right;
+         child.right = parent;
+
+         fixHeight(parent);
+         child.height = Math.max(height(parent), height(child.left)) + 1;
+
+         return child;
       }
 
       void fixHeight(Node node){
@@ -107,7 +137,7 @@ public class Solution {
       }
 
       int height(Node node){
-         return node != null ? node.height : 0;
+         return node != null ? node.height : -1;
       }
 
       int balanceFactor(Node node){
