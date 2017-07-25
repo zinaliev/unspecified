@@ -11,11 +11,11 @@ import static org.junit.Assert.*;
  */
 public class TreeTest {
 
-   Solution.Tree tree;
+   AvlTree tree;
 
    @Before
    public void setUp() throws Exception {
-      tree = new Solution.Tree();
+      tree = new AvlTree();
    }
 
    @After
@@ -29,7 +29,7 @@ public class TreeTest {
       tree.add(1);
       tree.add(3);
 
-      Solution.Node root = tree.root;
+      AvlTree.Node root = tree.root;
 
       assertEquals(2, root.data);
       assertEquals(1, root.left.data);
@@ -42,7 +42,7 @@ public class TreeTest {
       tree.add(2);
       tree.add(3);
 
-      Solution.Node root = tree.root;
+      AvlTree.Node root = tree.root;
 
       assertEquals(2, root.data);
       assertEquals(1, root.left.data);
@@ -58,7 +58,7 @@ public class TreeTest {
       tree.add(2);
       tree.add(1);
 
-      Solution.Node root = tree.root;
+      AvlTree.Node root = tree.root;
 
       assertEquals(2, root.data);
       assertEquals(1, root.left.data);
@@ -74,7 +74,7 @@ public class TreeTest {
       tree.add(1);
       tree.add(2);
 
-      Solution.Node root = tree.root;
+      AvlTree.Node root = tree.root;
 
       assertEquals(2, root.data);
       assertEquals(1, root.left.data);
@@ -87,7 +87,7 @@ public class TreeTest {
       tree.add(3);
       tree.add(2);
 
-      Solution.Node root = tree.root;
+      AvlTree.Node root = tree.root;
 
       assertEquals(2, root.data);
       assertEquals(1, root.left.data);
@@ -104,7 +104,7 @@ public class TreeTest {
       tree.add(4);
       tree.add(2);
 
-      Solution.Node root = tree.root;
+      AvlTree.Node root = tree.root;
 
       assertEquals(5, root.data);
 
@@ -130,7 +130,7 @@ public class TreeTest {
       tree.add(8);
       tree.add(9);
 
-      Solution.Node root = tree.root;
+      AvlTree.Node root = tree.root;
 
       assertEquals(4, root.data);
 
