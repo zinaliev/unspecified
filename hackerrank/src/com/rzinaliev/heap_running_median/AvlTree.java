@@ -13,11 +13,13 @@ class AvlTree {
    Node root;
 
    public void add(int data){
-      if(root == null){
-         root = new Node(data);
-      }else{
-         root = addInternal(root, data);
-      }
+//      if(root == null){
+//         root = new Node(data);
+//      }else{
+//         root = addInternal(root, data);
+//      }
+
+      root = addInternal(root, data);
    }
 
    public int balanceFactor(){

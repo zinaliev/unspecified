@@ -9,7 +9,7 @@ import static org.junit.Assert.*;
 /**
  * @author rzinalie
  */
-public class TreeTest {
+public class AvlTreeTest {
 
    AvlTree tree;
 
