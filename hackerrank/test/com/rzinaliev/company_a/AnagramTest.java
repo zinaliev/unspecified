@@ -37,8 +37,7 @@ public class AnagramTest {
    public void testNoAnagram_OneLetterHaystackAndNeedle() throws Exception {
       List<Integer> result = new Anagram().findAnagramStartIndixes("a", "b");
 
-      assertEquals(1, result.size());
-      assertEquals(Integer.valueOf(0), result.get(0));
+      assertEquals(0, result.size());
    }
 
    @Test
