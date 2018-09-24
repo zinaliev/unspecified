@@ -22,6 +22,7 @@ public class CountTripletsTest {
     arr.add(1L);
     arr.add(5L);
     arr.add(5L);
+    arr.add(25L);
     arr.add(125L);
 
     long r = 5;

@@ -12,11 +12,7 @@ public class CountTriplets {
     Map<Long, Long> left = new HashMap<>();
 
     for (Long i : arr) {
-
-      if (i < r || i % r == 0) {
-
-        right.put(i, right.get(i) == null ? 1L : right.get(i) + 1);
-      }
+      right.put(i, right.get(i) == null ? 1L : right.get(i) + 1);
     }
 
     long triplets = 0;
