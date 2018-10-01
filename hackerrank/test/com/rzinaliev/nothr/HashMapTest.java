@@ -3,15 +3,19 @@ package com.rzinaliev.nothr;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
+/**
+ * Just a helper methods to play with {@link HashMap}
+ */
 public class HashMapTest {
 
 
   /**
-   * Copied and pasted from actual {@link java.util.HashMap} implementation
+   * Copied and pasted from actual {@link HashMap} implementation
    */
   static int hash(Object key) {
     int h;
