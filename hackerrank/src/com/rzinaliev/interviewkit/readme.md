@@ -1,1 +1,0 @@
-[Tasks from HackerRank's Interview preparation kit](https://www.hackerrank.com/interview/interview-preparation-kit)
